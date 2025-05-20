@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Give me your Cookies</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .cookie { margin-bottom: 10px; }
-  </style>
-</head>
-<body>
-  <h1>Cookies</h1>
-  <div id="cookieList"></div>
-
-  <script>
+<script>
     function displayCookies() {
       const cookieListDiv = document.getElementById("cookieList");
       const cookies = document.cookie.split("; ");
@@ -34,6 +20,3 @@
     // Call on page load
     displayCookies();
   </script>
-</body>
-</html>
-
