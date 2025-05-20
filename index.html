@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Give me your Cookies</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .cookie { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Cookies</h1>
+  <div id="cookieList"></div>
+
+  <script>
+    function displayCookies() {
+      const cookieListDiv = document.getElementById("cookieList");
+      const cookies = document.cookie.split("; ");
+
+      if (cookies[0] === "") {
+        cookieListDiv.innerHTML = "<p>No cookies found.</p>";
+        return;
+      }
+
+      cookies.forEach(cookie => {
+        const [name, value] = cookie.split("=");
+        const cookieDiv = document.createElement("div");
+        cookieDiv.className = "cookie";
+        cookieDiv.textContent = `Name: ${name}, Value: ${decodeURIComponent(value)}`;
+        cookieListDiv.appendChild(cookieDiv);
+      });
+    }
+
+    // Call on page load
+    displayCookies();
+  </script>
+</body>
+</html>
+
