@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Trigger GET</title>
+  <title>Fetch and Display Flag</title>
 </head>
 <body>
-  <h1>GET request triggered below:</h1>
-  <img src="http://snake_internal_server:5000/get_flag/af52ac70-a6ff-4afc-9c93-c2a7c76da6f3" alt="Flag Image">
+  <h1>Flag Response:</h1>
+  <pre id="output">Loading...</pre>
+
+  <script>
+    fetch('http://snake_internal_server:5000/get_flag/af52ac70-a6ff-4afc-9c93-c2a7c76da6f3')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text(); // or response.json() if JSON expected
+      })
+      .then(data => {
+        document.getElementById('output').textContent = data;
+      })
+      .catch(error => {
+        document.getElementById('output').textContent = 'Error: ' + error.message;
+      });
+  </script>
 </body>
 </html>
